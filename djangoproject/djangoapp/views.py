@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect
 
 # Create your views here.
 def display(request):
@@ -11,3 +11,10 @@ def display1(request):
 
 def show(request):
     return HttpResponse("<i>haiiiii<i>")
+
+def second(request):
+    return redirect("third")
+
+
+def third(request):
+    return render (request,"one.html")

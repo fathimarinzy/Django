@@ -29,10 +29,20 @@ from djangoapp.views import *
 #     path("",show),
 # ]
 
-urlpatterns=[
+# urlpatterns=[
+#     path('admin/', admin.site.urls),
+#     path("",include("djangoapp.urls")),
+#     # path("secondapp",include("djangoapp2.urls")),
+
+
+# ]
+
+
+urlpatterns = [
     path('admin/', admin.site.urls),
-    path("",include("djangoapp.urls")),
-    # path("secondapp",include("djangoapp2.urls")),
-
-
+ 
+    path("first/",display),
+    path("first1/",display1),
+    path("second/",second),
+    path("third/",third,name=third),
 ]
