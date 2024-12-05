@@ -38,20 +38,29 @@ from djangoapp.views import *
 # ]
 
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
  
-    path("first/",display),
-    path("first1/",display1),
-    path("second/",second),
-    path("third/",third,name="third"),
-    path("forth/",four),
-    path("five/",five),
-    path("six/",six),
-    path("seven/",seven),
-    path("eight/",eight),
-    path("dic/",dic),
+#     path("first/",display),
+#     path("first1/",display1),
+#     path("second/",second),
+#     path("third/",third,name="third"),
+#     path("forth/",four),
+#     path("five/",five),
+#     path("six/",six),
+#     path("seven/",seven),
+#     path("eight/",eight),
+#     path("dic/",dic),
+#     path("parent",parent),
+#     path("child",child),
 
+# ]
 
+# downloded django templtes
+urlpatterns=[
+    path('admin/', admin.site.urls),
+    path("index",index),
+    path("child",child),
+     
 
 ]

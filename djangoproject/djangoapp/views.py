@@ -54,3 +54,15 @@ def dic(request):
     b=1
     c={"name":"ammu","course":"python","age":20}
     return render (request,"dic1.html",{"data":a,"view":b,"value":c})
+
+def parent(request):
+    return render (request,"parent.html")
+
+def child(request):
+  
+    return render (request,"child.html")
+
+
+# downloded django templtes
+def index(request):
+    return render (request,"index.html")

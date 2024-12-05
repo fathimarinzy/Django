@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block content1 %}
+
+    <title>child</title>
+    {% endblock content1 %}
+
+</head>
+<body>
+    {% block content2 %}
+
+    
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#features">Features</a></li>
+
+          </ul>
+           
+    {% endblock content2 %}
+
+</body>
+</html>
