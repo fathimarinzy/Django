@@ -44,5 +44,14 @@ urlpatterns = [
     path("first/",display),
     path("first1/",display1),
     path("second/",second),
-    path("third/",third,name=third),
+    path("third/",third,name="third"),
+    path("forth/",four),
+    path("five/",five),
+    path("six/",six),
+    path("seven/",seven),
+    path("eight/",eight),
+    path("dic/",dic),
+
+
+
 ]

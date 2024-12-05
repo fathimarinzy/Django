@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <!-- <h1>welcome to django</h1>
+    <h1>{{data}}</h1>
+    <h1>{{view}}</h1> -->
+
+<!-- if case -->
+
+
+<!-- 
+{% if 1 is data %}
+<p>monday</p>
+{% elif 2 is data %}
+<p>tuesday</p>
+{% else %}
+<p>invalid day</p>
+{% endif %} -->
+
+<!-- list case -->
+<!-- {% for i in value%}
+<p>{{i}}</p>
+{% endfor %} -->
+
+<!-- dictionary case -->
+{% for i in value %}
+<p>{{i}}</p>
+{% endfor %}
+
+{{value}}
+<h1>{{value.name}}</h1>
+<h1>{{value.course}}</h1>
+
+{% for i,j  in value.items %}
+<h1>{{i}}:{{j}}</h1>
+{% endfor %}
+
+
+
+</body>
+</html>
