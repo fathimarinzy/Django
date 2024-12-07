@@ -10,3 +10,9 @@ class Teacher(models.Model):
     name=models.CharField(max_length=30)
     course=models.CharField(max_length=30)
     salary=models.FloatField()
+
+
+class Login(models.Model):
+    name=models.CharField(max_length=30)
+    course=models.CharField(max_length=30)
+    salary=models.FloatField()

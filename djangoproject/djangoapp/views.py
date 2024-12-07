@@ -1,4 +1,5 @@
 from django.shortcuts import render,HttpResponse,redirect
+from .forms import Author,Loginform
 
 # Create your views here.
 def display(request):
@@ -66,3 +67,59 @@ def child(request):
 # downloded django templtes
 def index(request):
     return render (request,"index.html")
+
+
+#django form case
+def form(request):
+    x=Author()
+    return render (request,"form.html",{"data":x})
+
+# def authorform(request):
+#     if request.method=="POST":
+#         return HttpResponse("worked")
+#     else:
+#         x=Author()
+#         return render (request,"form1.html",{"data":x})
+
+# def authorform(request):
+#     if request.method=="POST":
+#        z=Author(request.POST)
+#        print(z)
+#        return HttpResponse("worked")
+
+#     else:
+#         x=Author()
+#         return render (request,"form1.html",{"data":x})
+
+# def authorform(request):
+#     if request.method=="POST":
+#        z=Author(request.POST)
+#     #    print(z)
+#         if z.is_valid():
+#              y=z.cleaned_data
+#              print(y)
+#              print("working")
+#              return HttpResponse("worked")
+
+#     else:
+#         x=Author()
+#         return render (request,"form1.html",{"data":x})
+
+
+def authorform(request):
+    if request.method=="POST":
+       z=Author(request.POST)
+    #    print(z)
+       if z.is_valid():
+            y=z.cleaned_data
+            print(y)
+            print("working")
+            return render (request,"table.html",{"i":y})
+    else:
+        x=Author()
+        return render (request,"form1.html",{"data":x})
+
+#model form case
+def login(request):
+    x=Loginform()
+    return render(request,"login.html",{"data":x})

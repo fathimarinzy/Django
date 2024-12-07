@@ -62,5 +62,19 @@ urlpatterns=[
     path("index",index),
     path("child",child),
      
+]
 
+#django form case
+urlpatterns=[
+    path('admin/', admin.site.urls),
+    path("form",form,name="form"), 
+    path("authorform",authorform,name="authorform"),   
+   
+
+]
+
+#model form case
+urlpatterns=[
+    path('admin/', admin.site.urls),
+    path("login",login,name="login"),  
 ]
