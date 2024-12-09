@@ -76,5 +76,9 @@ urlpatterns=[
 #model form case
 urlpatterns=[
     path('admin/', admin.site.urls),
-    path("login",login,name="login"),  
+    path("login/",login,name="login"), 
+    path("view/",view,name="view"),
+    path("delete_log/<int:id>/",deletes,name="deletes"),  
+    path("edit_log/<int:id>/",edit,name="edit"),  
+    path("update_log/<int:id>/",updates,name="updates"),  
 ]

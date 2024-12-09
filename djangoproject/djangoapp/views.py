@@ -1,5 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect
 from .forms import Author,Loginform
+from .models import Login
 
 # Create your views here.
 def display(request):
@@ -120,6 +121,45 @@ def authorform(request):
         return render (request,"form1.html",{"data":x})
 
 #model form case
+# def login(request):
+#     x=Loginform()
+#     return render(request,"login.html",{"data":x})
+
 def login(request):
-    x=Loginform()
-    return render(request,"login.html",{"data":x})
+    if request.method=="POST":
+        z=Loginform(request.POST)
+        if z.is_valid():
+            z.save()
+            return HttpResponse("worked")
+    else:
+        x=Loginform()
+        return render(request,"login.html",{"data":x})
+    
+#    to view values inserted in database 
+def view(request):
+    x=Login.objects.all()
+    return render(request,"view.html",{"data":x})
+
+#to delete row 
+def deletes(request,id):
+    x=Login.objects.get(id=id)
+    x.delete()
+    return HttpResponse("deleted successfully")
+
+#to edit
+def edit(request,id):
+    x=Login.objects.get(id=id)
+    return render(request,"edit.html",{"data":x})
+
+def updates(request,id):
+    x=Login.objects.get(id=id)
+    if request.method=="POST":
+        z=Loginform(request.POST,instance=x)
+        if z.is_valid():
+            z.save()
+            return redirect("view")
+    else:
+        return render(request,"edit.html",{"data":x})
+
+  
+
