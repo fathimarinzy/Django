@@ -20,6 +20,7 @@ from django.urls import path,include
 from djangoapp.views import *
 
 
+
 # urlpatterns = [
 #     path('admin/', admin.site.urls),
 #     # path("first/",views.display),
@@ -81,4 +82,29 @@ urlpatterns=[
     path("delete_log/<int:id>/",deletes,name="deletes"),  
     path("edit_log/<int:id>/",edit,name="edit"),  
     path("update_log/<int:id>/",updates,name="updates"),  
+
+    path("college",college,name="college"), 
+    path("viewcollege",viewcollege,name="viewcollege"), 
+
+]
+#modelform with file
+from django.conf import settings
+from django.conf.urls.static import static
+
+
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+
+
+#normal from
+urlpatterns=[
+    path('admin/', admin.site.urls),
+    path('employee/',emp,name="emp" ),
+    path("views/",viewemp,name="view"),
+    path("delete_emp/<int:id>/",delete_emp,name="deletes"),  
+    path("edit_emp/<int:id>/",edit_emp,name="editt"),  
+
+
+
 ]
