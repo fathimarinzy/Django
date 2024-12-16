@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect
 from .forms import Author,Loginform,Collegeform
-from .models import Login,College,Employee,Author,Book,Testing
+from .models import Login,College,Employee,Author,Book,Testing,Authors,Books
 
 # Create your views here.
 def display(request):
@@ -323,3 +323,54 @@ def getsession(request):
 def deletesession(request):
     del request.session['name']
     return HttpResponse('session deleted')
+
+
+# hw
+def authdetail(request):
+  if request.method=="POST":
+      a=request.POST['author_name']
+      l=request.POST['language']
+      p=request.POST['published_year']
+      x=Authors.objects.create(author_name=a,language=l,published_year=p)
+      x.save()
+      return HttpResponse("worked")
+  else:
+      return render(request,'authdetail.html')
+  
+def authors(request):
+    x=Authors.objects.all()
+    return render(request,"authors.html",{"data":x})
+
+def book_name(request):
+    if request.method=="POST":
+        aut=request.POST['Auth_id']
+        book_name=request.POST['book_name']
+        z=Authors.objects.get(id=aut)
+        x=Books.objects.create(auth_id=z,book_name=book_name)
+        x.save()
+        return HttpResponse("worked")
+    else:
+        x=Authors.objects.all()
+        return render(request,'authors.html',{"data":x})
+
+def detailview(request):
+    x=Books.objects.all()
+    return render(request,'detailview.html',{"data":x})
+
+def bookdelete(request,id):
+    x=Books.objects.get(id=id)
+    x.delete()
+    return HttpResponse("worked")
+
+def bookedit(request,id):
+    x=Books.objects.get(id=id)
+    return render(request,"detailedit.html",{"data":x})
+
+def bookupdate(request,id):
+    if request.method=="POST":
+        book_name=request.POST['book_name']
+        x=Books.objects.get(id=id)
+        x.book_name=book_name
+        x.save()
+        return redirect("detailview")
+    

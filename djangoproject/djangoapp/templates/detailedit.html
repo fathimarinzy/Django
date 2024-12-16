@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/bookupdate/{{data.id}}/" method="POST">
+        {% csrf_token %}
+ 
+         <input type="text" id="Auth_id" name="Auth_id" value="{{data.Auth_id.author_name}}">
+         <input type="text" id=book_name name="book_name" value="{{data.detailedit}}">
+
+        
+         <input type="submit" value="update">
+    </form>
+</body>
+</html>

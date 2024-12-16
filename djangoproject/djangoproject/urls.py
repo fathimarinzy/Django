@@ -137,3 +137,17 @@ urlpatterns=[
     path('deletesession/',deletesession,name='session'),
 
  ]
+# hw
+urlpatterns=[
+    path('admin/',admin.site.urls),
+    path("authdetail/",authdetail,name='authdetail'),
+    path("authors/",authors,name='authors'),
+    path("bookname/",book_name,name='bookname'),
+    path("detailview/",detailview,name='detailview'),
+    path("bookdelete/<int:id>/",bookdelete,name='bookdelete'),
+    path("bookedit/<int:id>/",bookedit,name='bookedit'),
+    path("bookupdate/<int:id>/",bookupdate,name='bookupdate'),
+
+
+
+]

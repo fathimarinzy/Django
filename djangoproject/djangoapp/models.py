@@ -43,6 +43,15 @@ class Testing(models.Model):
     phone=models.IntegerField()
 
 
+# hw
+class Authors(models.Model):
+    author_name=models.CharField(max_length=30)
+    language=models.CharField(max_length=30)
+    published_year=models.IntegerField()
+
+class Books(models.Model):
+    auth_id=models.ForeignKey(Authors,on_delete=models.CASCADE)
+    book_name=models.CharField(max_length=30)
 
 
 
