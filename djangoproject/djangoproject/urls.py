@@ -103,8 +103,37 @@ urlpatterns=[
     path('employee/',emp,name="emp" ),
     path("views/",viewemp,name="view"),
     path("delete_emp/<int:id>/",delete_emp,name="deletes"),  
-    path("edit_emp/<int:id>/",edit_emp,name="editt"),  
-
-
+    path("edit_emp/<int:id>/",edit_emp,name="editt"),   
+    path("update_emp/<int:id>/",update_emp,name="updates"),  
 
 ]
+      #to connect two table using fk
+urlpatterns=[
+    path('admin/', admin.site.urls),
+    path('authorfm/',authorfm,name="authorfm" ),
+    path('author/',author,name="author" ),
+    path('price/',price,name="book" ),
+    path('price_view/',price_view,name="priceview" ),
+    path('pricedelete/<int:id>/',pricedelete,name="book" ),
+    path('priceedit/<int:id>/',priceedit,name="book" ),
+    path('updateprice/<int:id>/',updateprice,name="book" ),
+
+]
+
+ #image case
+urlpatterns=[
+    path('admin/', admin.site.urls),
+    path('test/',testing,name="test"),
+
+ ]
+
+# session cookie
+urlpatterns=[
+    path('admin/', admin.site.urls),
+    path('setcookie/',setcookie,name='session'),
+    path('getcookie/',getcookie,name='session'),
+    path('setsession/',setsession,name='session'),
+    path('getsession/',getsession,name='session'),
+    path('deletesession/',deletesession,name='session'),
+
+ ]

@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="POST">
+    <form action="/update_emp/{{ data.id }}/" method="POST">
         {% csrf_token %}
           
             <input type="text" id="" name="firstname" value="{{data.firtname}}" placeholder="Enter your firstname">

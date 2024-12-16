@@ -26,3 +26,24 @@ class Employee(models.Model):
     lastname=models.CharField(max_length=50)
     age=models.IntegerField()
     place=models.CharField(max_length=255)
+
+#    to connect two table using fk
+class Author(models.Model):
+    name=models.CharField(max_length=30)
+    phone=models.IntegerField()
+    email=models.EmailField()
+class Book(models.Model):
+    Author_id=models.ForeignKey(Author,on_delete=models.CASCADE)
+    price=models.IntegerField()
+  
+
+# image case
+class Testing(models.Model):
+    image_lawn=models.ImageField(upload_to="image")
+    phone=models.IntegerField()
+
+
+
+
+
+

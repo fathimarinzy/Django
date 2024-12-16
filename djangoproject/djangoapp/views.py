@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect
 from .forms import Author,Loginform,Collegeform
-from .models import Login,College,Employee
+from .models import Login,College,Employee,Author,Book,Testing
 
 # Create your views here.
 def display(request):
@@ -212,3 +212,114 @@ def delete_emp(request,id):
 def edit_emp(request,id):
     x=Employee.objects.get(id=id)
     return render (request,"editemp.html",{"data":x})
+
+#to update
+def update_emp(request,id):
+    if request.method=="POST":
+        firstname=request.POST['firstname']
+        lastname=request.POST['lastname']
+        age=request.POST['age']
+        place=request.POST['place']
+        x=Employee.objects.get(id=id)
+        x.firstname=firstname
+        x.lastname=lastname
+        x.age=age
+        x.place=place
+        x.save()
+        return HttpResponse("worked")
+
+#    to connect two table using fk
+
+def authorfm(request):
+    if request.method=="POST":
+        n=request.POST['name']
+        p=request.POST['phone']
+        e=request.POST['email']
+        x=Author.objects.create(name=n,phone=p,email=e)
+        x.save()
+        return HttpResponse("worked")
+    else:
+        return render(request,"authorfm.html")
+
+def author(request):
+    x=Author.objects.all()
+    return render(request,"author.html",{"data":x})
+
+
+def price(request):
+    if request.method=="POST":
+        Aut=request.POST['Aut_id']
+        price=request.POST['price']
+        z=Author.objects.get(id=Aut)
+        x=Book.objects.create(Author_id=z,price=price)
+        x.save()
+        return HttpResponse("worked")
+    else:
+        x=Author.objects.all()
+        return render(request,"author.html",{"data":x})
+
+def price_view(request):
+    x=Book.objects.all()
+    return render (request,"priceview.html",{"data":x})
+
+
+def pricedelete(request,id):
+    x=Book.objects.get(id=id)
+    x.delete()
+    return HttpResponse("worked")
+
+def priceedit(request,id):
+    x=Book.objects.get(id=id)
+    return render(request,"priceedit.html",{"data":x})
+
+def updateprice(request,id):
+    if request.method=="POST":
+        price=request.POST['price']
+        x=Book.objects.get(id=id)
+        x.price=price
+        x.save()
+        return redirect("priceview")
+    
+
+ #image case
+
+def testing(request):
+    x=Testing.objects.all()
+    return render (request,"img.html",{"data":x})
+
+def test(request):
+    if request.method=="POST":
+        y=(request.POST,request.FILES)
+        if y.is_valid():
+            y.save()
+            return HttpResponse("WORKED")
+    else:
+        x=Collegeform()
+        return render(request,"college.html",{"data":x})
+    
+def viewcollege(request):
+    y=College.objects.all()
+    return render(request,'collegeview.html',{"data":y})
+
+
+# session cookie
+def setcookie(request):
+    r=HttpResponse("cookie is set")
+    r.set_cookie("django","Its a framework")
+    return r
+
+def getcookie(request):
+    r=request.COOKIES['django']
+    return HttpResponse(r)
+
+def setsession(request):
+    request.session['name']='ammu'
+    return HttpResponse("session set")     
+
+def getsession(request):
+    x=request.session['name']
+    return HttpResponse(x)
+
+def deletesession(request):
+    del request.session['name']
+    return HttpResponse('session deleted')

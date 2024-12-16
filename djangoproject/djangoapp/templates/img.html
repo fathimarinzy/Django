@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Image </td>
+        <td>Phone</td>
+        <td>delete</td>
+        <td>edit </td>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td><img src="{{i.image_lawn.url }}" alt="{{here}}" width="200px"></td>
+        <td>{{i.phone}}</td>
+        <td><a href="deleteimage/{{i.id}}">delete</a></td>
+        <td><a href="editimage/{{i.id}}">edit</a></td>
+
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
