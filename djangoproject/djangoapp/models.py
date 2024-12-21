@@ -54,5 +54,28 @@ class Books(models.Model):
     book_name=models.CharField(max_length=30)
 
 
+class Students(models.Model):
+    std_name=models.CharField(max_length=30)
+    course=models.CharField(max_length=30)
+    place=models.CharField(max_length=30)
+    age=models.IntegerField()
+    phone=models.IntegerField()
+    email=models.EmailField()
+
+class Marks(models.Model):
+    std_id=models.ForeignKey(Students,on_delete=models.CASCADE)
+    mark=models.IntegerField()
+
+class Teachers(models.Model):
+    name=models.CharField(max_length=30)
+    sub=models.CharField(max_length=30)
+
+class Department(models.Model):
+    tchr_id=models.ForeignKey(Teachers,on_delete=models.CASCADE)
+    dept_name=models.CharField(max_length=30)
 
 
+
+class Loginpage(models.Model):
+    username=models.CharField(max_length=30)
+    password=models.CharField(max_length=128)

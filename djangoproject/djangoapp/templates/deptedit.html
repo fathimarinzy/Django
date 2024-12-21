@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/deptupdate/{{data.id}}/" method="POST">
+        {% csrf_token %}
+ 
+         <input type="text" id="tchr_id" name="tchr_id" value="{{data.tchr_id.name}}">
+         <input type="text" id="dept_name" name="dept_name" value="{{data.deptedit}}">
+
+        
+         <input type="submit" value="update">
+    </form>
+</body>
+</html>

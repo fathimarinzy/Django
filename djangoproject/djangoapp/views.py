@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect
 from .forms import Author,Loginform,Collegeform
-from .models import Login,College,Employee,Author,Book,Testing,Authors,Books
+from .models import Login,College,Employee,Author,Book,Testing,Authors,Books,Students,Marks,Teachers,Department,Loginpage
 
 # Create your views here.
 def display(request):
@@ -374,3 +374,126 @@ def bookupdate(request,id):
         x.save()
         return redirect("detailview")
     
+def stddetail(request):
+    if request.method=="POST":
+        s=request.POST['std_name']
+        c=request.POST['course']
+        p=request.POST['place']
+        a=request.POST['age']
+        ph=request.POST['phone']
+        e=request.POST['email']
+        x=Students.objects.create(std_name=s,course=c,place=p,age=a,phone=ph,email=e)
+        x.save()
+        return HttpResponse("worked")
+    else:
+        return render(request,'stdform.html')
+    
+def std(request):
+    x=Students.objects.all()
+    return render(request,'std.html',{"data":x}) 
+        
+def mark(request):
+    if request.method=="POST":
+        stu=request.POST['st_id']
+        mark=request.POST['mark']
+        z=Students.objects.get(id=stu)
+        x=Marks.objects.create(std_id=z,mark=mark)
+        x.save()
+        return HttpResponse("worked")
+    else:
+        x=Students.objects.all()
+        return render(request,'std.html',{"data":x})
+
+def stdview(request):
+    x=Marks.objects.all()
+    return render(request,'stdview.html',{"data":x})
+
+def stddelete(request,id):
+    x=Marks.objects.get(id=id)
+    x.delete()
+    return HttpResponse("worked")
+
+def stdedit(request,id):
+    x=Marks.objects.get(id=id)
+    return render(request,"stdedit.html",{"data":x})
+
+def stdupdate(request,id):
+    if request.method=="POST":
+        mark=request.POST['mark']
+        x=Marks.objects.get(id=id)
+        x.mark=mark
+        x.save()
+        return redirect("stdview")  
+
+
+def tchrdetail(request):
+    if request.method=="POST":
+        n=request.POST['name']
+        s=request.POST['sub']
+        x=Teachers.objects.create(name=n,sub=s)
+        x.save()
+        return HttpResponse("worked")
+    else:
+        return render(request,'tchrform.html')
+    
+def tchr(request):
+    x=Teachers.objects.all()
+    return render(request,'tchr.html',{"data":x}) 
+        
+def dept_name(request):
+    if request.method=="POST":
+        tch=request.POST['tch_id']
+        dept_name=request.POST['dept_name']
+        z=Teachers.objects.get(id=tch)
+        x=Department.objects.create(tchr_id=z,dept_name=dept_name)
+        x.save()
+        return HttpResponse("worked")
+    else:
+        x=Teachers.objects.all()
+        return render(request,'tchr.html',{"data":x})
+
+def deptview(request):
+    x=Department.objects.all()
+    return render(request,'deptview.html',{"data":x})
+
+def deptdelete(request,id):
+    x=Department.objects.get(id=id)
+    x.delete()
+    return HttpResponse("worked")
+
+def deptedit(request,id):
+    x=Department.objects.get(id=id)
+    return render(request,"deptedit.html",{"data":x})
+
+def deptupdate(request,id):
+    if request.method=="POST":
+        dept_name=request.POST['dept_name']
+        x=Department.objects.get(id=id)
+        x.dept_name=dept_name
+        x.save()
+        return redirect("deptview")  
+    
+
+# task
+def home(request):
+    return render(request,'home.html')
+
+
+
+def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        x=Loginpage.objects.create(username=username,password=password)
+        x.save()
+        return redirect("edit")
+    else:
+    
+        return render(request, 'loginpage.html')
+
+
+def edit(request):
+    x=Loginpage.objects.all()
+    return render(request,'editpage.html',{"data":x})
+   
+
