@@ -1,7 +1,7 @@
 from django.shortcuts import render,HttpResponse,redirect
 from .forms import Author,Loginform,Collegeform
-from .models import Login,College,Employee,Author,Book,Testing,Authors,Books,Students,Marks,Teachers,Department,Loginpage
-
+from .models import Login,College,Employee,Author,Book,Testing,Authors,Books,Students,Marks,Teachers,Department,Loginpage,Trainer
+from django.views.generic import CreateView,DetailView,ListView,DeleteView,UpdateView
 # Create your views here.
 def display(request):
     return HttpResponse("welcome to django")
@@ -496,4 +496,36 @@ def edit(request):
     x=Loginpage.objects.all()
     return render(request,'editpage.html',{"data":x})
    
+
+
+
+# Generic views
+class Trainercreate(CreateView):
+    model=Trainer
+    template_name='create.html'
+    fields=['firstname','lastname','age','email','subject']
+    success_url='list'
+
+class Trainerlist(ListView):
+    model=Trainer
+    template_name='list.html'
+    context_object_name='data'
+
+class Trainerdetail(DetailView):
+    model=Trainer
+    template_name='detail.html'
+    context_object_name='data'
+
+class Traineredit(UpdateView):
+    model=Trainer
+    template_name='create.html'
+    fields=['firstname','lastname','age','email','subject']
+    success_url='/list'
+
+class Trainerdelete(DeleteView):
+    model=Trainer
+    template_name="delete.html"
+    success_url="/list"
+
+
 

@@ -177,7 +177,18 @@ urlpatterns=[
     path('edit/', edit, name='edit'),
     # path('logout/', logout, name='logout'),
 
-    
-   
-
 ]
+
+# Generic views
+urlpatterns=[
+
+    path('admin/',admin.site.urls),
+    path("create",Trainercreate.as_view(), name='create'),
+    path("list",Trainerlist.as_view(), name='list'),
+    path("detail/<int:pk>",Trainerdetail.as_view(), name='detail'),
+    path("edit/<int:pk>",Traineredit.as_view(), name='edit'),
+    path("delete/<int:pk>",Trainerdelete.as_view(), name='delete'),
+
+    ]
+
+

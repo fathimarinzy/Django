@@ -79,3 +79,23 @@ class Department(models.Model):
 class Loginpage(models.Model):
     username=models.CharField(max_length=30)
     password=models.CharField(max_length=128)
+
+
+
+
+# Generic views
+class Trainer(models.Model):
+    firstname=models.CharField(max_length=50)
+    lastname=models.CharField(max_length=50)
+    age=models.IntegerField()
+    email=models.CharField(max_length=50)
+    subject=models.CharField(max_length=50)
+
+
+    
+# to view table name as that name
+class worker(models.Model):
+    firstname=models.CharField(max_length=50)
+    age=models.IntegerField()
+    class Meta:
+        db_table ="WORKER"

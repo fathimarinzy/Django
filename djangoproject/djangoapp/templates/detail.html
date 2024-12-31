@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{data.firstname}} <br>
+    {{data.lastname}}<br>
+    {{data.age}}<br>
+    {{data.email}}<br>
+    {{data.subject}}<br>
+
+    <button><a href="{% url 'edit' data.pk %}">edit</a></button>
+    <button><a href="{% url 'delete' data.pk %}">delete</a></button>
+
+    
+
+
+</body>
+</html>
