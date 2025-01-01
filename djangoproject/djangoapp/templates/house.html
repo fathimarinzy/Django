@@ -6,14 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="POST">
-        <a href="\login\">Login</a>
-        <a href="\logout\">Logout</a>
-        <a href="\editin\">Edit</a>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="text" placeholder="name">
+    <input type="text" placeholder="place">
+    <input type="number" placeholder="age">
 
 
 
-
-    </form>
+  </form>
 </body>
 </html>

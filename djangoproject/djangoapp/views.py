@@ -1,7 +1,14 @@
 from django.shortcuts import render,HttpResponse,redirect
-from .forms import Author,Loginform,Collegeform
+from .forms import Author,Loginform,Collegeform,Home
 from .models import Login,College,Employee,Author,Book,Testing,Authors,Books,Students,Marks,Teachers,Department,Loginpage,Trainer
 from django.views.generic import CreateView,DetailView,ListView,DeleteView,UpdateView
+
+from django.core.mail import send_mail
+from djangoproject import settings
+
+
+
+
 # Create your views here.
 def display(request):
     return HttpResponse("welcome to django")
@@ -484,8 +491,8 @@ def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        x=Loginpage.objects.create(username=username,password=password)
-        x.save()
+        request.session["username"]=username
+      
         return redirect("edit")
     else:
     
@@ -493,11 +500,22 @@ def login(request):
 
 
 def edit(request):
-    x=Loginpage.objects.all()
-    return render(request,'editpage.html',{"data":x})
+    x=request.session.get("username")
+    if x:  
+        return render(request, 'editpage.html', {"data": x})
+    else:
+        return HttpResponse("Please log in first.")
+    return redirect("login") 
    
+def logout(request):
+    if request.session.get("username"):
+        return redirect("login")
+    else:
+        
+        return HttpResponse(" You are not logged in.")
 
-
+def editin(request):
+    pass
 
 # Generic views
 class Trainercreate(CreateView):
@@ -527,5 +545,30 @@ class Trainerdelete(DeleteView):
     template_name="delete.html"
     success_url="/list"
 
+#djangoform
+
+def house(request):
+    x=Home()
+    return render(request,"house.html",{"data":x})
 
 
+#loader method
+from django.template import loader
+
+def loa(request):
+    x=loader.get_template("third.html")
+    z='hai'
+    return HttpResponse(x.render({"data":z}))
+
+
+#mail 
+def new_mail(request):
+    subject='this is a mail with django'
+    msg='this is a djngo mail'
+    to='akshayp9396@gmail.com'
+    r=send_mail(subject,msg,settings.EMAIL_HOST_USER,[to])
+    if r==1:
+        a="success"
+    else:
+        a="failed"
+    return HttpResponse(a)

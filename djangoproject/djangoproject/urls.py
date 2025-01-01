@@ -175,20 +175,44 @@ urlpatterns=[
     path('home/',home,name='home'),
     path('login/', login, name='login'),
     path('edit/', edit, name='edit'),
-    # path('logout/', logout, name='logout'),
+    path('logout/', logout, name='logout'),
+    path('editin/', editin, name='editin'),
+
 
 ]
 
 # Generic views
+# urlpatterns=[
+
+#     path('admin/',admin.site.urls),
+#     path("create",Trainercreate.as_view(), name='create'),
+#     path("list",Trainerlist.as_view(), name='list'),
+#     path("detail/<int:pk>",Trainerdetail.as_view(), name='detail'),
+#     path("edit/<int:pk>",Traineredit.as_view(), name='edit'),
+#     path("delete/<int:pk>",Trainerdelete.as_view(), name='delete'),
+
+#     ]
+
+
+#django form case
 urlpatterns=[
-
-    path('admin/',admin.site.urls),
-    path("create",Trainercreate.as_view(), name='create'),
-    path("list",Trainerlist.as_view(), name='list'),
-    path("detail/<int:pk>",Trainerdetail.as_view(), name='detail'),
-    path("edit/<int:pk>",Traineredit.as_view(), name='edit'),
-    path("delete/<int:pk>",Trainerdelete.as_view(), name='delete'),
-
-    ]
+    path('admin/', admin.site.urls),
+    path("house",house,name="house")
 
 
+]
+
+
+
+#loader method
+urlpatterns=[
+    path('admin/', admin.site.urls),
+    path("load",loa,name="loa")
+]
+
+# mailcase
+urlpatterns=[
+    path('admin/', admin.site.urls),
+    path("mail",new_mail,name="mail"),
+
+]

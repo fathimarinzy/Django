@@ -99,3 +99,7 @@ class worker(models.Model):
     age=models.IntegerField()
     class Meta:
         db_table ="WORKER"
+
+
+
+
