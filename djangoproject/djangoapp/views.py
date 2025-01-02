@@ -548,7 +548,12 @@ class Trainerdelete(DeleteView):
 #djangoform
 
 def house(request):
-    x=Home()
+    if request.method=="POST":
+        x=Home(request.POST)
+        if x.is_valid():
+            print(x.cleaned_data)
+    else:
+        x=Home()
     return render(request,"house.html",{"data":x})
 
 
