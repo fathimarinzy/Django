@@ -294,20 +294,37 @@ def testing(request):
     x=Testing.objects.all()
     return render (request,"img.html",{"data":x})
 
-def test(request):
+def for_images(request):
     if request.method=="POST":
-        y=(request.POST,request.FILES)
-        if y.is_valid():
-            y.save()
-            return HttpResponse("WORKED")
+        x=request.FILES['images']
+        y=request.POST['phone']
+        s=Testing.objects.create(image_lawn=x,phone=y)
+        s.save()
+        return HttpResponse("worked")
     else:
-        x=Collegeform()
-        return render(request,"college.html",{"data":x})
+        return render(request,'img.html')
     
-def viewcollege(request):
-    y=College.objects.all()
-    return render(request,'collegeview.html',{"data":y})
+def view_image(request):
+    x=Testing.objects.all()
+    return render(request,"viewimg.html",{"view":x})
 
+
+def editimg(request,id):
+    x=Testing.objects.get(id=id)
+    return render(request,"editimg.html",{"view":x})
+
+def updimg(request,id):
+    if request.method=="POST":
+        phone=request.POST['phone']
+        x=Testing.objects.get(id=id)
+        if "images" in request.FILES:
+            x.image_lawn=request.FILES['images']
+        x.phone=phone
+        x.save()
+        return redirect("test2")
+
+
+ 
 
 # session cookie
 def setcookie(request):

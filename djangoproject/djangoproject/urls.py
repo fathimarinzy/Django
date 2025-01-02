@@ -124,64 +124,72 @@ urlpatterns=[
 urlpatterns=[
     path('admin/', admin.site.urls),
     path('test/',testing,name="test"),
+    path("test1/",for_images,name="test1"),
+    path("test2/",view_image,name="test2"),
+    path("editimg/<int:id>/",editimg,name="editimg"),
+    path("updimg/<int:id>/",updimg,name="updimg")
+
+
+
+
 
  ]
 
 # session cookie
-urlpatterns=[
-    path('admin/', admin.site.urls),
-    path('setcookie/',setcookie,name='session'),
-    path('getcookie/',getcookie,name='session'),
-    path('setsession/',setsession,name='session'),
-    path('getsession/',getsession,name='session'),
-    path('deletesession/',deletesession,name='session'),
+# urlpatterns=[
+#     path('admin/', admin.site.urls),
+#     path('setcookie/',setcookie,name='session'),
+#     path('getcookie/',getcookie,name='session'),
+#     path('setsession/',setsession,name='session'),
+#     path('getsession/',getsession,name='session'),
+#     path('deletesession/',deletesession,name='session'),
 
- ]
-# hw
-urlpatterns=[
-    path('admin/',admin.site.urls),
-    path("authdetail/",authdetail,name='authdetail'),
-    path("authors/",authors,name='authors'),
-    path("bookname/",book_name,name='bookname'),
-    path("detailview/",detailview,name='detailview'),
-    path("bookdelete/<int:id>/",bookdelete,name='bookdelete'),
-    path("bookedit/<int:id>/",bookedit,name='bookedit'),
-    path("bookupdate/<int:id>/",bookupdate,name='bookupdate'),
+#  ]
+# # hw
+# urlpatterns=[
+#     path('admin/',admin.site.urls),
+#     path("authdetail/",authdetail,name='authdetail'),
+#     path("authors/",authors,name='authors'),
+#     path("bookname/",book_name,name='bookname'),
+#     path("detailview/",detailview,name='detailview'),
+#     path("bookdelete/<int:id>/",bookdelete,name='bookdelete'),
+#     path("bookedit/<int:id>/",bookedit,name='bookedit'),
+#     path("bookupdate/<int:id>/",bookupdate,name='bookupdate'),
 
-    path("stddetail/",stddetail,name='stddetail'),
-    path("std/",std,name='std'),
-    path("mark/",mark,name='mark'),
-    path("stdview/",stdview,name='stdview'),
-    path("stddelete/<int:id>/",stddelete,name='stddelete'),
-    path("stdedit/<int:id>/",stdedit,name='stdedit'),
-    path("stdupdate/<int:id>/",stdupdate,name='stdupdate'),
-
-
-
-    path("tchrdetail/",tchrdetail,name='tchrdetail'),
-    path("tchr/",tchr,name='tchr'),
-    path("dept/",dept_name,name='dept'),
-    path("deptview/",deptview,name='deptview'),
-    path("deptdelete/<int:id>/",deptdelete,name='deptdelete'),
-    path("deptedit/<int:id>/",deptedit,name='deptedit'),
-    path("deptupdate/<int:id>/",deptupdate,name='deptupdate'),
-
-]
-
-#task
-urlpatterns=[
-
-    path('admin/',admin.site.urls),
-    path('home/',home,name='home'),
-    path('login/', login, name='login'),
-    path('edit/', edit, name='edit'),
-    path('logout/', logout, name='logout'),
-    path('editin/', editin, name='editin'),
+#     path("stddetail/",stddetail,name='stddetail'),
+#     path("std/",std,name='std'),
+#     path("mark/",mark,name='mark'),
+#     path("stdview/",stdview,name='stdview'),
+#     path("stddelete/<int:id>/",stddelete,name='stddelete'),
+#     path("stdedit/<int:id>/",stdedit,name='stdedit'),
+#     path("stdupdate/<int:id>/",stdupdate,name='stdupdate'),
 
 
-]
 
-# Generic views
+#     path("tchrdetail/",tchrdetail,name='tchrdetail'),
+#     path("tchr/",tchr,name='tchr'),
+#     path("dept/",dept_name,name='dept'),
+#     path("deptview/",deptview,name='deptview'),
+#     path("deptdelete/<int:id>/",deptdelete,name='deptdelete'),
+#     path("deptedit/<int:id>/",deptedit,name='deptedit'),
+#     path("deptupdate/<int:id>/",deptupdate,name='deptupdate'),
+
+# ]
+
+# #task
+# urlpatterns=[
+
+#     path('admin/',admin.site.urls),
+#     path('home/',home,name='home'),
+#     path('login/', login, name='login'),
+#     path('edit/', edit, name='edit'),
+#     path('logout/', logout, name='logout'),
+#     path('editin/', editin, name='editin'),
+
+
+# ]
+
+# # Generic views
 # urlpatterns=[
 
 #     path('admin/',admin.site.urls),
@@ -194,25 +202,25 @@ urlpatterns=[
 #     ]
 
 
-#django form case
-urlpatterns=[
-    path('admin/', admin.site.urls),
-    path("house",house,name="house")
+# #django form case
+# urlpatterns=[
+#     path('admin/', admin.site.urls),
+#     path("house",house,name="house")
 
 
-]
+# ]
 
 
 
-#loader method
-urlpatterns=[
-    path('admin/', admin.site.urls),
-    path("load",loa,name="loa")
-]
+# #loader method
+# urlpatterns=[
+#     path('admin/', admin.site.urls),
+#     path("load",loa,name="loa")
+# ]
 
-# mailcase
-urlpatterns=[
-    path('admin/', admin.site.urls),
-    path("mail",new_mail,name="mail"),
+# # mailcase
+# urlpatterns=[
+#     path('admin/', admin.site.urls),
+#     path("mail",new_mail,name="mail"),
 
-]
+# ]

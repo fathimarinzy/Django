@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="2">
+        <tr>
+            <th>image</th>
+            <th>number</th>
+        </tr>
+        {% for i in view %}
+
+        <tr>
+            <td>{{i.image_lawn}}</td>
+            <td>{{i.phone}}</td>
+            <td><a href="/editimg/{{i.id}}/">Edit</a></td>
+
+
+            
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
+</html>
