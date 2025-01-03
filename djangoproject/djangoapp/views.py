@@ -500,39 +500,34 @@ def deptupdate(request,id):
 
 # task
 def home(request):
-    return render(request,'home.html')
-
-
+        return render(request,'home.html')
+   
 
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        request.session["username"]=username
+        if username and password:  
+            request.session["username"] = username
+            return redirect("edit")
+        return HttpResponse("Invalid login credentials.")
+    return render(request, 'loginpage.html')
       
-        return redirect("edit")
-    else:
-    
-        return render(request, 'loginpage.html')
-
-
+      
 def edit(request):
     x=request.session.get("username")
     if x:  
         return render(request, 'editpage.html', {"data": x})
     else:
         return HttpResponse("Please log in first.")
-    return redirect("login") 
-   
+
 def logout(request):
     if request.session.get("username"):
+        request.session.flush() 
         return redirect("login")
     else:
-        
-        return HttpResponse(" You are not logged in.")
+        return HttpResponse("You are not logged in.")
 
-def editin(request):
-    pass
 
 # Generic views
 class Trainercreate(CreateView):

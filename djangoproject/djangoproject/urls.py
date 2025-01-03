@@ -136,58 +136,55 @@ urlpatterns=[
  ]
 
 # session cookie
-# urlpatterns=[
-#     path('admin/', admin.site.urls),
-#     path('setcookie/',setcookie,name='session'),
-#     path('getcookie/',getcookie,name='session'),
-#     path('setsession/',setsession,name='session'),
-#     path('getsession/',getsession,name='session'),
-#     path('deletesession/',deletesession,name='session'),
+urlpatterns=[
+    path('admin/', admin.site.urls),
+    path('setcookie/',setcookie,name='session'),
+    path('getcookie/',getcookie,name='session'),
+    path('setsession/',setsession,name='session'),
+    path('getsession/',getsession,name='session'),
+    path('deletesession/',deletesession,name='session'),
 
-#  ]
-# # hw
-# urlpatterns=[
-#     path('admin/',admin.site.urls),
-#     path("authdetail/",authdetail,name='authdetail'),
-#     path("authors/",authors,name='authors'),
-#     path("bookname/",book_name,name='bookname'),
-#     path("detailview/",detailview,name='detailview'),
-#     path("bookdelete/<int:id>/",bookdelete,name='bookdelete'),
-#     path("bookedit/<int:id>/",bookedit,name='bookedit'),
-#     path("bookupdate/<int:id>/",bookupdate,name='bookupdate'),
+ ]
+# hw
+urlpatterns=[
+    path('admin/',admin.site.urls),
+    path("authdetail/",authdetail,name='authdetail'),
+    path("authors/",authors,name='authors'),
+    path("bookname/",book_name,name='bookname'),
+    path("detailview/",detailview,name='detailview'),
+    path("bookdelete/<int:id>/",bookdelete,name='bookdelete'),
+    path("bookedit/<int:id>/",bookedit,name='bookedit'),
+    path("bookupdate/<int:id>/",bookupdate,name='bookupdate'),
 
-#     path("stddetail/",stddetail,name='stddetail'),
-#     path("std/",std,name='std'),
-#     path("mark/",mark,name='mark'),
-#     path("stdview/",stdview,name='stdview'),
-#     path("stddelete/<int:id>/",stddelete,name='stddelete'),
-#     path("stdedit/<int:id>/",stdedit,name='stdedit'),
-#     path("stdupdate/<int:id>/",stdupdate,name='stdupdate'),
+    path("stddetail/",stddetail,name='stddetail'),
+    path("std/",std,name='std'),
+    path("mark/",mark,name='mark'),
+    path("stdview/",stdview,name='stdview'),
+    path("stddelete/<int:id>/",stddelete,name='stddelete'),
+    path("stdedit/<int:id>/",stdedit,name='stdedit'),
+    path("stdupdate/<int:id>/",stdupdate,name='stdupdate'),
 
 
 
-#     path("tchrdetail/",tchrdetail,name='tchrdetail'),
-#     path("tchr/",tchr,name='tchr'),
-#     path("dept/",dept_name,name='dept'),
-#     path("deptview/",deptview,name='deptview'),
-#     path("deptdelete/<int:id>/",deptdelete,name='deptdelete'),
-#     path("deptedit/<int:id>/",deptedit,name='deptedit'),
-#     path("deptupdate/<int:id>/",deptupdate,name='deptupdate'),
+    path("tchrdetail/",tchrdetail,name='tchrdetail'),
+    path("tchr/",tchr,name='tchr'),
+    path("dept/",dept_name,name='dept'),
+    path("deptview/",deptview,name='deptview'),
+    path("deptdelete/<int:id>/",deptdelete,name='deptdelete'),
+    path("deptedit/<int:id>/",deptedit,name='deptedit'),
+    path("deptupdate/<int:id>/",deptupdate,name='deptupdate'),
 
-# ]
+]
 
 # #task
-# urlpatterns=[
+urlpatterns=[
 
-#     path('admin/',admin.site.urls),
-#     path('home/',home,name='home'),
-#     path('login/', login, name='login'),
-#     path('edit/', edit, name='edit'),
-#     path('logout/', logout, name='logout'),
-#     path('editin/', editin, name='editin'),
-
-
-# ]
+    path('admin/',admin.site.urls),
+    path('home/',home,name='home'),
+    path('login/', login, name='login'),
+    path('edit/', edit, name='edit'),
+    path('logout/', logout, name='logout'),
+]
 
 # # Generic views
 # urlpatterns=[
